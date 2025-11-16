@@ -1,0 +1,45 @@
+.body{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.body h1{
+  font-size: 7rem;
+  margin: 0;
+  text-align: center;
+}
+
+.body p{
+  color: var(--primary);
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.dynamic{
+  color: var(--accent);
+  display: inline;
+}
+
+.button {
+  border-radius: 10px;
+  border: 1px solid transparent;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--primary);
+  font-size: 2rem;
+  cursor: pointer;
+  transition: background-color 0.25s;
+  box-shadow: 5px 5px 5px var(--light-shadow-colour);
+}
+.button:hover {
+  background-color: var(--accent);
+}
+
+.textshadow{
+    text-shadow: 5px 5px 5px var(--light-shadow-colour);
+}
