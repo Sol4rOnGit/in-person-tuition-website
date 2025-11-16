@@ -1,5 +1,4 @@
-import './Stylesheets/global.css';
-import styles from './Stylesheets/Header.module.css'
+import styles from './Header.module.css'
 
 function Header(){
     return(
@@ -17,17 +16,16 @@ function MenuElements(){
 
     const MobileMenu = 
             <ul className={styles.ul}>
-                <li><a className={styles.a} href="#">|||</a></li>
                 <li><button className={styles.button}>Sign In</button></li>
             </ul>
     ;
 
     const WidescreenMenu = 
             <ul className={styles.ul}>
-                <li><a className={styles.a} href="#">Home</a></li>
-                <li><a className={styles.a} href="#">About</a></li>
+                <li><a className={styles.a} href="/">Home</a></li>
+                <li><a className={styles.a} href="/">About</a></li>
                 <li><a className={styles.a} href="#">Contact</a></li>
-                <li><button className={styles.button}>Sign In</button></li>
+                <li><a className={styles.button} href="/#/signup">Sign In</a></li>
             </ul>
     ;
     

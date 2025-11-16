@@ -40,20 +40,21 @@
 }
 
 .button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.5rem 1rem;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: var(--primary);
-  font-size: 1.25em;
-  cursor: pointer;
-  transition: background-color 0.25s;
-  box-shadow: 5px 5px 5px var(--light-shadow-colour);
+    border-radius: 8px;
+    color: white;
+    border: 1px solid transparent;
+    padding: 0.5rem 1rem;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: var(--primary);
+    font-size: 1.25em;
+    cursor: pointer;
+    transition: background-color 0.25s;
+    box-shadow: 5px 5px 5px var(--light-shadow-colour);
 }
 .button:hover {
-  background-color: var(--accent);
+    background-color: var(--accent);
 }
 
 @media(max-width: 1000px) {
