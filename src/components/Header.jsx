@@ -23,8 +23,8 @@ function MenuElements(){
     const WidescreenMenu = 
             <ul className={styles.ul}>
                 <li><a className={styles.a} href="/">Home</a></li>
-                <li><a className={styles.a} href="/">About</a></li>
-                <li><a className={styles.a} href="#">Contact</a></li>
+                <li><a className={styles.a} href="/#/about">About</a></li>
+                <li><a className={styles.a} href="/#/contact">Contact</a></li>
                 <li><a className={styles.button} href="/#/signup">Sign In</a></li>
             </ul>
     ;

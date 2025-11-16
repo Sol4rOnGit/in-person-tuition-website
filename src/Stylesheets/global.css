@@ -1,8 +1,24 @@
 :root{
     --primary: #27AAAA;
     --Titlecolor: #09C89B;
-    --darkerPrimary: #218f8f; 
+    --darkerPrimary: #218f8f;
     --accent: #B6C490;
 
+    --cardBg: rgba(0, 255, 229, 0.034); 
+    --borderGhost: rgba(78, 78, 78, 0.356);
+
     --light-shadow-colour: rgba(0, 0, 0, 0.226);
+
+    --mobile-width: 767px; /* Doesn't work */
 }
+
+/* Components with mobile responsiveness:
+
+@media(max-width: 767px){
+
+Current value: 767px 
+Header.module.css ✅
+Landing.module.css ✅
+SignUp.module.css ✅
+About.module.css ✅
+*/

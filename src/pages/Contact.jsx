@@ -3,19 +3,20 @@ import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
 
 //Stylesheets
-import styles from './SignUp.module.css';
+import styles from './Contact.module.css';
 
-function SignUp(){
+function Contact(){
     return(
         <>
             <Header />
             <div className={styles.body}>
-                <h1>Sign Up Page Test</h1>
+                <h1>Contact us here</h1>
+                <p>Phone Number: </p>
+
             </div>
             <Footer />
         </>
-
     );
 }
 
-export default SignUp
+export default Contact
