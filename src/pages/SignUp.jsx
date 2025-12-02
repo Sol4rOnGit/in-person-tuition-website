@@ -11,6 +11,7 @@ function SignUp(){
             <Header />
             <div className={styles.body}>
                 <h1>Sign Up Page Test</h1>
+                {/*???*/}
             </div>
             <Footer />
         </>

@@ -5,8 +5,8 @@ function AboutCard({name="Name", description="Default description"}){
 
     return(
         <div className={styles.card}>
-            <h3>{name}</h3>
-            <p>{description}</p>
+            <p className={styles.nametag}>{name}</p>
+            <p className={styles.description}>{description}</p>
         </div>
     );
 }

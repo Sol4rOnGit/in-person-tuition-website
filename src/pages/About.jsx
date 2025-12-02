@@ -13,10 +13,13 @@ function About(){
             <Header />
             <div className={styles.body}>
                 <h1>About us</h1>
-                <p>Bla bla bla</p>
+                <p>Description Paragraph</p>
                 <div className={styles.cardContainer}>
+                    <p className={styles.separation}>Founders</p>
+                    <AboutCard name="tanmaya" description="Big money man"/>
                     <AboutCard name="hiresh" description="Computer Science"/>
-                    <AboutCard name="tanmaya" description="Money"/>
+                    <p className={styles.separation}>Staff</p>
+                    <AboutCard name="prince" description="Mathematical Genius"/>
                 </div>
             </div>
             <Footer />

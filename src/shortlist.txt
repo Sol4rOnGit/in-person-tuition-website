@@ -1,0 +1,25 @@
+Landing page
+Eyecatching, Professional
+
+Sign Up page: -> Firebase api -> Basic Auth
+
+Name
+Year group of child
+Subject they are interested in
+Post code
+Email
+Phone Number
+
+Password
+
+
+Database to contain above per user
+user log in with email + Password
+
+Contact page
+
+About page
+
+Need tanmaya bio
+Need my bio to be put in
+Need prince bio
