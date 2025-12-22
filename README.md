@@ -1,2 +1,3 @@
 # in-person-tuition-website
-Website for S+EM.
+The Official Website for S+EM Tutors.
+Top students to get you your top grades in your GCSEs.
