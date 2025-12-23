@@ -20,34 +20,36 @@ function SignUp(){
                 <form className={styles.form}>
                     <h1>{isSignUp ? "Sign Up | S+EM." : "Log In | S+EM."}</h1>
 
-                    {isSignUp &&
-                    <>
-                        <div className={styles.nameContainer}>
-                            {/*Name*/}
-                            <p>Name</p>
-                            <input type="text" name="first_name" id="firstName" placeholder="First Name *" required/>
-                            <input type="text" name="last_name" id="lastName" placeholder="Last Name *" required/>
-                        </div>
+                    <div className={styles.formElementsWrapper}>
+                        {isSignUp &&
+                        <div className={styles.leftWrapper}>
+                            <div className={styles.nameContainer}>
+                                {/*Name*/}
+                                <p>Name</p>
+                                <input type="text" name="first_name" id="firstName" placeholder="First Name *" required/>
+                                <input type="text" name="last_name" id="lastName" placeholder="Last Name *" required/>
+                            </div>
 
-                        <div className={styles.other}>
-                            <p>Details</p>
-                            {/*Year Group*/}
-                            <input type="number" name="year_group" id="yearGroup" placeholder="Year group of Child *" required/>
+                            <div className={styles.other}>
+                                <p>Details</p>
+                                {/*Year Group*/}
+                                <input type="number" name="year_group" id="yearGroup" placeholder="Year group of Child *" required/>
 
-                            {/* Post Code */}
-                            <input type="text" name="post_code" id="postCode" placeholder="Post Code *" required/>
-                        </div>
-                    </>}
+                                {/* Post Code */}
+                                <input type="text" name="post_code" id="postCode" placeholder="Post Code *" required/>
+                            </div>
+                        </div>}
 
-                    <div className={styles.credentialsContainer}>
-                        <p>Credentials</p>
-                        <div className={styles.credentialsWrapper}>
-                            {/* Email & Password */}
-                            <input type="text" name="email" id="email" placeholder="Email *" required/>
-                            {isSignUp && <input type="text" name="phone_number" id="phoneNumber" placeholder="Phone Number *" required/>}
+                        <div className={styles.credentialsContainer}>
+                            <p>Credentials</p>
+                            <div className={styles.credentialsWrapper}>
+                                {/* Email & Password */}
+                                <input type="text" name="email" id="email" placeholder="Email *" required/>
+                                {isSignUp && <input type="text" name="phone_number" id="phoneNumber" placeholder="Phone Number *" required/>}
 
-                            <input type="password" name="password" id="password" placeholder="Password *" required/>
-                            {isSignUp && <input type="password" name="confirm_password" id="confirmPassword" placeholder="Confirm password *" required/>}
+                                <input type="password" name="password" id="password" placeholder="Password *" required/>
+                                {isSignUp && <input type="password" name="confirm_password" id="confirmPassword" placeholder="Confirm password *" required/>}
+                            </div>
                         </div>
                     </div>
 
@@ -55,7 +57,7 @@ function SignUp(){
                         <p className={styles.smallText}>* means the field is required</p>
                         <p className={styles.smallText}>Never share this information with anyone</p>
                     </div>
-
+                    
                     <button type="submit">Submit</button>
                     <button type="button" id="switchModeBtn" onClick={() => setIsSignUp(!isSignUp)}>{isSignUp ? "Log In Instead" : "Sign Up Instead"}</button>
                 </form>

@@ -1,5 +1,5 @@
 .body{
-  width: 100vw;
+  width: 99vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -15,6 +15,17 @@
   background-color: rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
   border-radius: 2rem;
+}
+
+.formElementsWrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1.4rem;
+}
+
+.form h1{
+  text-align: center;
 }
 
 .nameContainer, .other, .credentialsContainer{
@@ -51,10 +62,16 @@
 @media(max-width: 767px){
   .body{
     justify-content: start;
+    height: fit-content;
     padding-top: 10vh;
+    padding-bottom: 10vh;
   }
 
   .body h1{
     font-size: 2rem;
+  }
+
+  .formElementsWrapper{
+    flex-direction: column;
   }
 }

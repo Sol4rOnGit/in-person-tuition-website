@@ -8,6 +8,8 @@ import AboutCard from '../components/cards/AboutCard.jsx';
 import styles from './About.module.css';
 
 function About(){
+    /* Hi, I’m Tanmaya, founder of and tutor at s+em tutors.*/
+
     return(
         <>
             <Header />
@@ -15,11 +17,19 @@ function About(){
                 <h1>About us</h1>
                 <p>Description Paragraph</p>
                 <div className={styles.cardContainer}>
-                    <p className={styles.separation}>Founders</p>
-                    <AboutCard name="tanmaya" description="Big money man"/>
-                    <AboutCard name="hiresh" description="Computer Science"/>
-                    <p className={styles.separation}>Staff</p>
-                    <AboutCard name="prince" description="Mathematical Genius"/>
+                    <div>
+                        <p className={styles.separation}>Founders</p>
+                        <div className={styles.verticalCardContainer}>
+                            <AboutCard name="Tanmaya Bharara" description="My expertise lies in Maths and physics which I am studying for A-Level (alongside Economics and Further Maths) at the London Academy of Excellence. Previously I have achieved all nines at GCSE in 11 subjects (99.98 percentile) and an A in Additional Maths and have tutored maths up to year 11/12."/>
+                            <AboutCard name="Hiresh Solanki" description="I specialise in computer science with almost a decade of coding experience, I built the very website you're looking at from the ground up. Dealing with admin and also tutoring computer science, I'll give your child the knowledge and skills needed to get top grades in computer science and mathematics."/>
+                        </div>
+                    </div>
+                    <div>
+                        <p className={styles.separation}>Staff</p>
+                        <div className={styles.verticalCardContainer}>
+                            <AboutCard name="Prince Patel" description="Mathematical Genius. Aspiring Aerospace Engineer."/>
+                        </div>
+                    </div>
                 </div>
             </div>
             <Footer />
