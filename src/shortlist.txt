@@ -12,7 +12,6 @@ Phone Number
 
 Password
 
-
 Database to contain above per user
 user log in with email + Password
 

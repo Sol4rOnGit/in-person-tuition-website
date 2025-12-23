@@ -17,12 +17,12 @@
   border-radius: 2rem;
 }
 
-.credentialsContainer{
+.nameContainer, .other, .credentialsContainer{
   display: flex;
   flex-direction: column;
 }
 
-.credentialsContainer p{
+.credentialsContainer p, .nameContainer p, .other p{
   text-align: center;
   margin-bottom: 0.1rem;
 }
@@ -49,7 +49,12 @@
 }
 
 @media(max-width: 767px){
-    .body h1{
-      font-size: 2rem;
-    }
+  .body{
+    justify-content: start;
+    padding-top: 10vh;
+  }
+
+  .body h1{
+    font-size: 2rem;
+  }
 }
