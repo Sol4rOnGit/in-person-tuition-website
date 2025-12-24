@@ -37,7 +37,7 @@ function Dashboard(){
             <div className={styles.body}>
                 <h1>Welcome {userName}</h1>
 
-                <a onClick={logOut}>LogOut</a>
+                <button onClick={logOut}>LogOut</button>
             </div>
             <Footer />
         </>

@@ -1,3 +1,6 @@
+//Analytics
+import { Analytics } from "@vercel/analytics/react";
+
 //Modules
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -9,6 +12,8 @@ import { Landing, About, Contact, SignUp, Dashboard } from "./pages";
 
 function App() {
   return (
+    <>
+      <Analytics />
       <Router>
         <Routes>
           <Route path="/" element={ <Landing/> }/>
@@ -18,6 +23,7 @@ function App() {
           <Route path="/dashboard" element={ <Dashboard/> }/>
         </Routes>
       </Router>
+    </>
   )
 }
 
