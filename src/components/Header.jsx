@@ -1,9 +1,15 @@
-import { useState } from 'react';
+//React
+import { useEffect, useState } from 'react';
 
+//Firebase
+import { auth, onAuthStateChanged } from '../firebase/app';
+
+//Styles
 import styles from './Header.module.css'
 
 function Header(){
     const [sideBarOpen, setSideBarOpen] = useState(false);
+    const [button, setButton] = useState(<a className={styles.button} href="/#/signup">Sign In</a>)
 
     function showSideBar(){
         setSideBarOpen(true);
@@ -13,6 +19,17 @@ function Header(){
         setSideBarOpen(false);
     }
 
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if(user){
+                setButton(<a className={styles.button} href="/#/dashboard">Dashboard</a>)
+            }
+            else{
+                setButton(<a className={styles.button} href="/#/signup">Sign In</a>)
+            }
+        })
+    }, [])
+
     return(
         <header className={styles.header}>
             <nav className={styles.nav}>
@@ -21,7 +38,7 @@ function Header(){
                     <li><a className={styles.a} href="/">Home</a></li>
                     <li><a className={styles.a} href="/#/about">About</a></li>
                     <li><a className={styles.a} href="/#/contact">Contact</a></li>
-                    <li><a className={styles.button} href="/#/signup">Sign In</a></li>
+                    <li>{button}</li>
                 </ul>
 
                 <ul className={styles.Hamburger}>

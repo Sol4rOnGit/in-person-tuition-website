@@ -1,5 +1,10 @@
 import { useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
+
+import { auth } from '/src/firebase/app.js';
+import { signUp, logIn } from '/src/firebase/auth.js'; 
+
 //Components
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
@@ -11,13 +16,70 @@ import styles from './SignUp.module.css';
 import "../firebase/auth.js";
 
 function SignUp(){
+    const navigate = useNavigate();
+
     const [isSignUp, setIsSignUp] = useState(false);
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+
+        
+    async function submitForm(event){
+        event.preventDefault();
+
+        if(isSignUp){
+            try{
+                if(password === confirmPassword){
+                    console.log(`Attempting signing up with ${email}, ${password}`);
+                    const userCredential = await signUp(email, password);
+                    console.log("Signed Up:", userCredential.user);
+                    const userId = userCredential.user.uid;
+                    navigate("/dashboard")
+                }
+                else{
+                    throw new Error("Passwords do not match!")
+                }
+
+                //Firestore store attempt later here
+            }
+            catch(error){
+                if(error === "Passwords do not match!"){
+                    alert("Passwords do not match")
+                }
+                else if(error.code === "auth/email-already-in-use"){
+                    alert("This email is already in use. Try to login or use another email address.")
+                }
+                else{
+                    alert(`Failed to sign up! ${error.message} - Error code: ${error.code}. Please contact support.`)
+                }
+            }
+
+        }
+
+        if(!isSignUp){
+            logIn(email, password).then((userCredential) => {
+                const user = userCredential.user;
+                console.log(`Logging in with ${email}, ${password}`);
+                navigate("/dashboard")
+            })
+            .catch((error) => {
+                if(error.code === "auth/invalid-credential"){
+                    alert("Incorrect Credentials. Please check that your password or email is correct.")
+                }
+                else{
+                    alert(`Failed to sign up! ${error.message} - Error code: ${error.code}. Please contact support.`)
+                }
+            });
+        }
+    }
+
     
     return(
         <>
             <Header />
             <div className={styles.body}>
-                <form className={styles.form}>
+                <form className={styles.form} onSubmit={submitForm}>
                     <h1>{isSignUp ? "Sign Up | S+EM." : "Log In | S+EM."}</h1>
 
                     <div className={styles.formElementsWrapper}>
@@ -44,11 +106,23 @@ function SignUp(){
                             <p>Credentials</p>
                             <div className={styles.credentialsWrapper}>
                                 {/* Email & Password */}
-                                <input type="text" name="email" id="email" placeholder="Email *" required/>
+                                <input type="email"
+                                    placeholder="Email *"
+                                    value={email}
+                                    onChange={(event) => setEmail(event.target.value)}
+                                    required/>
                                 {isSignUp && <input type="text" name="phone_number" id="phoneNumber" placeholder="Phone Number *" required/>}
 
-                                <input type="password" name="password" id="password" placeholder="Password *" required/>
-                                {isSignUp && <input type="password" name="confirm_password" id="confirmPassword" placeholder="Confirm password *" required/>}
+                                <input type="password"
+                                    placeholder="Password *" 
+                                    value={password}
+                                    onChange={(event) => setPassword(event.target.value)}
+                                    required/>
+                                {isSignUp && <input type="password"
+                                placeholder="Confirm password *" 
+                                value={confirmPassword}
+                                onChange={(event) => setConfirmPassword(event.target.value)}                                
+                                required/>}
                             </div>
                         </div>
                     </div>

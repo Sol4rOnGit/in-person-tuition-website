@@ -1,4 +1,4 @@
-import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "./app.js"
+import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "./app.js"
 
 export const signUp = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
