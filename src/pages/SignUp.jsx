@@ -1,9 +1,12 @@
+//React
 import { useState } from 'react';
-
 import { useNavigate } from 'react-router-dom';
 
+//Firebase
 import { auth } from '/src/firebase/app.js';
 import { signUp, logIn } from '/src/firebase/auth.js'; 
+
+import { firestore, doc, setDoc, getDocFromServer, serverTimestamp } from '/src/firebase/app.js';
 
 //Components
 import Header from '../components/Header.jsx';
@@ -18,9 +21,21 @@ import "../firebase/auth.js";
 function SignUp(){
     const navigate = useNavigate();
 
+    //Page state
     const [isSignUp, setIsSignUp] = useState(false);
 
+    //Input field variables
+    // Name
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+
+    // Details
+    const [childYearGroup, setChildYearGroup] = useState("");
+    const [postCode, setPostCode] = useState("");
+
+    // Credentials
     const [email, setEmail] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -35,6 +50,15 @@ function SignUp(){
                     const userCredential = await signUp(email, password);
                     console.log("Signed Up:", userCredential.user);
                     const userId = userCredential.user.uid;
+
+                    await setDoc(doc(firestore, "UserData", userId), {
+                        FirstName: firstName,
+                        LastName: lastName,
+                        ChildYearGroup: childYearGroup,
+                        PostCode: postCode,
+                        PhoneNumber: phoneNumber
+                    })
+
                     navigate("/dashboard")
                 }
                 else{
@@ -86,43 +110,31 @@ function SignUp(){
                         {isSignUp &&
                         <div className={styles.leftWrapper}>
                             <div className={styles.nameContainer}>
-                                {/*Name*/}
+                                {/* First & Last Name*/}
                                 <p>Name</p>
-                                <input type="text" name="first_name" id="firstName" placeholder="First Name *" required/>
-                                <input type="text" name="last_name" id="lastName" placeholder="Last Name *" required/>
+                                <input type="text" placeholder="First Name *" value={firstName} onChange={(event) => setFirstName(event.target.value)} required/>
+                                <input type="text" placeholder="Last Name *" value={lastName} onChange={(event) => setLastName(event.target.value)} required/>
                             </div>
 
                             <div className={styles.other}>
                                 <p>Details</p>
-                                {/*Year Group*/}
-                                <input type="number" name="year_group" id="yearGroup" placeholder="Year group of Child *" required/>
-
-                                {/* Post Code */}
-                                <input type="text" name="post_code" id="postCode" placeholder="Post Code *" required/>
+                                {/* Year group and Post Code */}
+                                <input type="number" placeholder="Year group of Child *" value={childYearGroup} onChange={(event) => setChildYearGroup(event.target.value)}required/>
+                                <input type="text" placeholder="Post Code *" value={postCode} onChange={(event) => setPostCode(event.target.value)} required/>
                             </div>
                         </div>}
 
                         <div className={styles.credentialsContainer}>
                             <p>Credentials</p>
                             <div className={styles.credentialsWrapper}>
-                                {/* Email & Password */}
-                                <input type="email"
-                                    placeholder="Email *"
-                                    value={email}
-                                    onChange={(event) => setEmail(event.target.value)}
-                                    required/>
-                                {isSignUp && <input type="text" name="phone_number" id="phoneNumber" placeholder="Phone Number *" required/>}
+                                {/* Email, Phone Number & Password */}
+                                <input type="email" placeholder="Email *" value={email} onChange={(event) => setEmail(event.target.value)} required/>
 
-                                <input type="password"
-                                    placeholder="Password *" 
-                                    value={password}
-                                    onChange={(event) => setPassword(event.target.value)}
-                                    required/>
-                                {isSignUp && <input type="password"
-                                placeholder="Confirm password *" 
-                                value={confirmPassword}
-                                onChange={(event) => setConfirmPassword(event.target.value)}                                
-                                required/>}
+                                {isSignUp && <input type="text" placeholder="Phone Number *" value={phoneNumber} onChange={(event) => setPhoneNumber(event.target.value)} required/>}
+
+                                <input type="password" placeholder="Password *" value={password} onChange={(event) => setPassword(event.target.value)} required/>
+                                
+                                {isSignUp && <input type="password" placeholder="Confirm password *" value={confirmPassword} onChange={(event) => setConfirmPassword(event.target.value)} required/>}
                             </div>
                         </div>
                     </div>
