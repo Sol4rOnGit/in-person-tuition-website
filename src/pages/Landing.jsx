@@ -1,5 +1,6 @@
 //Modules
 import TypeWriter from "typewriter-effect";
+import { useNavigate } from "react-router-dom";
 
 //Stylesheets
 import styles from "./Landing.module.css";
@@ -9,6 +10,12 @@ import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
 
 function Landing(){
+  const navigate = useNavigate();
+
+  function CTOclicked(){
+    navigate("/dashboard");
+  }
+
   return (
     <>
       <Header />
@@ -28,7 +35,7 @@ function Landing(){
             />
             </span></h1> {/* Need to make the "maths" type and retype dynamically*/}
         <h3></h3>
-        <button className={styles.button}>Test us for <strong className={styles.textshadow}>free</strong></button>
+        <button className={styles.button} onClick={CTOclicked}>Test us for <strong className={styles.textshadow}>free</strong></button>
       </div>
       <Footer />
     </>
