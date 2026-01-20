@@ -13,7 +13,8 @@ function Landing(){
   const navigate = useNavigate();
 
   function CTOclicked(){
-    navigate("/dashboard");
+    //navigate("/dashboard");
+    navigate("/offerings");
   }
 
   return (
@@ -24,7 +25,7 @@ function Landing(){
         <h1 className={styles.textshadow}>
           Tutors in <span className={styles.dynamic}><TypeWriter
               options={{
-                strings: ['maths', 'physics', 'computer science', 'person'],
+                strings: ['maths', 'physics', 'computer science'], //, 'person'
                 autoStart: true,
                 loop: true,
                 delay: 120,
@@ -35,7 +36,7 @@ function Landing(){
             />
             </span></h1> {/* Need to make the "maths" type and retype dynamically*/}
         <h3></h3>
-        <button className={styles.button} onClick={CTOclicked}>Test us for <strong className={styles.textshadow}>free</strong></button>
+        <button className={styles.button} onClick={CTOclicked}>Try us for <strong className={styles.textshadow}>free</strong></button>
       </div>
       <Footer />
     </>

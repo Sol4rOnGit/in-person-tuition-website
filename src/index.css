@@ -25,6 +25,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -43,6 +44,12 @@ button {
   cursor: pointer;
   transition: border-color 0.25s, transform 0.2s;
 }
+
+button, button:visited, button:active, button:hover{
+  color: white;
+}
+
+button::after
 
 button:focus,
 button:focus-visible {

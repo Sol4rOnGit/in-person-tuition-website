@@ -8,7 +8,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import './Stylesheets/global.css';
 
 //Pages
-import { Landing, About, Contact, SignUp, Dashboard } from "./pages";
+import { Landing, About, Contact, SignUp, Dashboard, Offerings } from "./pages";
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
           <Route path="/about" element={ <About/> }/>
           <Route path="/contact" element={ <Contact/> }/>
           <Route path="/dashboard" element={ <Dashboard/> }/>
+          <Route path="/offerings" element={ <Offerings/> }/>
         </Routes>
       </Router>
     </>
