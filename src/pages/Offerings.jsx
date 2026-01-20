@@ -24,11 +24,14 @@ function Offerings(){
                         Expert GCSE Tutoring
                     </h1>
                     <p className={styles.priceTag}>
-                        <s>£75</s> <strong>£50</strong>/month
+                        <s>£75</s> <strong className={styles.green}>£50</strong>/month
                     </p>
 
-                    <p>Experienced tutors helping your child excel in Maths, Sciences and Computer Science.</p>
-                    <p>Secure your slot in our limited places NOW</p>
+                    <p>Our experienced tutors help your child excel in Maths, Sciences, and Computer Science, with results seen in as little as a month! Secure your slot <strong>now</strong> before spaces run out!</p>
+
+                    <p>Your child is eligible for a test which is <strong>completely free of charge.</strong></p>
+
+                    {/* We need to add social credibility later when that occurs */}
 
                     <button onClick={handleWhatsappClick}>
                         Start Boosting Grades
